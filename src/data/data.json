@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "image": "https://stories.bsh-group.com/images/generated/orig/88/12/img31288.jpg",
+      "title": "Washing Machine",
+      "price": 500
+    },
+    {
+      "id": 2,
+      "image": "https://5.imimg.com/data5/UV/BG/MY-15383654/lg-freeze-500x500.png",
+      "title": "Freeze",
+      "price": 39.99
+    },
+    {
+      "id": 3,
+      "image": "https://m.media-amazon.com/images/I/31aDWE4msZL.jpg",
+      "title": "TV",
+      "price": 29.99
+    },
+    {
+      "id": 4,
+      "image": "https://www.lg.com/content/dam/channel/wcms/in/images/split-ac/ts-h19vnxe_anlg_eail_in_c/gallery/TS-H19VNXE-split-ac-front-view-D-01.jpg",
+      "title": "AC",
+      "price": 29.99
+    }
+  ]
+}
