@@ -24,7 +24,7 @@ import Warnning from "./ModalComponent";
 const ProductForm = () => {
   const route = useRoute();
   const product = route.params?.item || {};
-  console.log(product.details?.image)
+   console.log(product,'product');
 
   const productDetails = useSelector((state) => state.productDetails);
 
@@ -132,64 +132,66 @@ setIndexSelectedDeleteIMage(index)
   // Upload images and form data to the server
   const uploadImage = async () => {
       if (product.details == null) {
-        console.log("first")
-        if (!thumbnailImage) {
+         console.log("first")
+          if (!thumbnailImage) {
 
-          Alert.alert(
-            "Missing Data",
-            "Please select an image and fill in all required fields."
-          );
-          return;
-        }
-        if (images.length < 1) {
+            Alert.alert(
+              "Missing Data",
+              "Please select an image and fill in all required fields."
+            );
+            return;
+          }
+          if (images.length < 1) {
 
-          Alert.alert(
-            "Missing Data",
-            "Please select at least one image and fill in all required fields."
-          );
-          return;
-        }
-        if (!description) {
-          Alert.alert(
-            "Missing Data",
-            "Please fill in the description field."
-          );
-          return;
-        }
-        if (!discount) {
-          Alert.alert(
-            "Missing Data",
-            "Please fill in the discount field."
-          );
-          return;
-        }
-        const formData = new FormData();
+            Alert.alert(
+              "Missing Data",
+              "Please select at least one image and fill in all required fields."
+            );
+            return;
+          }
+          if (!description) {
+            Alert.alert(
+              "Missing Data",
+              "Please fill in the description field."
+            );
+            return;
+          }
+          if (!discount) {
+            Alert.alert(
+              "Missing Data",
+              "Please fill in the discount field."
+            );
+            return;
+          }
+          const formData = new FormData();
 
-        if (thumbnailImage) {
+          if (thumbnailImage) {
 
-          formData.append("thumbnail_image", {
-            uri: thumbnailImage.uri,
-            type: thumbnailImage.type,
-            name: thumbnailImage.fileName,
-          });
-        }
-        if (images.length > 0) {
-
-          images.forEach((file, index) => {
-            formData.append("images[]", {
-              uri: file.uri,
-              type: file.type || "image/jpeg",
-              name: file.fileName || `image_${index}.jpg`,
+            formData.append("thumbnail_image", {
+              uri: thumbnailImage.uri,
+              type: thumbnailImage.type,
+              name: thumbnailImage.fileName,
             });
-          });
-          formData.append("description", description);
+          }
+          if (images.length > 0) {
+
+              images.forEach((file, index) => {
+                formData.append("images[]", {
+                  uri: file.uri,
+                  type: file.type || "image/jpeg",
+                  name: file.fileName || `image_${index}.jpg`,
+                });
+              });
+            }
+            formData.append("description", description);
           
-          formData.append("mrp", discount);
+            formData.append("mrp", discount);
+            formData.append("product_id", product?.id);
 
           if (product?.sale_price <= parseFloat(discount)) {
             try {
               setLoad(true);
-              const endpoint =  "https://iconcomputer.in/api/updateProductDetails";
+              const endpoint =  `${baseUrl}/updateProductDetails`;
 
               const response = await axios.post(endpoint, formData, {
                 headers: {
@@ -203,7 +205,7 @@ setIndexSelectedDeleteIMage(index)
                 setLoad(false);
                 Alert.alert("Success", product?.details ?
                    "Product updated successfully!" : "Product added successfully!");
-                dispatch(setProductDetails(response?.data?.result))
+               // dispatch(setProductDetails(response?.data?.result))
                 dispatch(productAllDispatch());
                 navigation.navigate("Productlist");
               }
@@ -216,11 +218,11 @@ setIndexSelectedDeleteIMage(index)
           } else {
             Alert.alert("Error", "Please enter a valid MRP price.");
           }
-        }
+      
       }else{
         console.log("second")
         const formData = new FormData();
-console.log(formData)
+// console.log(formData)
         if (thumbnailImage) {
 
           formData.append("thumbnail_image", {
@@ -242,7 +244,7 @@ console.log(formData)
                 formData.append("description", description);
                 formData.append("product_id", product?.id);
                 formData.append("mrp", discount);
-                  console.log(formData) 
+                  // console.log(formData) 
           if (product?.sale_price <= parseFloat(discount)) {
             try {
              
@@ -361,7 +363,7 @@ console.log(formData)
       setExistingImages(product?.details?.image ? JSON.parse(product?.details?.image) : []);
       
     }
-    console.log(images,"images")
+    // console.log(images,"images")
     return () => {
       setSelectedFiles([]);
       setImages([]);

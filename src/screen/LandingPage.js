@@ -36,7 +36,7 @@ export const LandingPage = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [refreshing, setRefreshing] = useState(false); // Refreshing state to control loading indicator
   const drawerAnimation = useRef(new Animated.Value(-300)).current; // Drawer starts off-screen
-  //  console.log("productHot", productHot);
+    // console.log("productHot[0]", productHot);
   const toggleDrawer = () => {
     if (isDrawerOpen) {
       // Close drawer

@@ -588,8 +588,8 @@ export const productbarcodeDispatch = (id, navigation) => async (dispatch) => {
       navigation.navigate("PRODUCT_QR__DETAILS", { item: data?.data });
     }
   } catch (error) {
-      console.log("error", JSON.stringify(error));
-       navigation.navigate("ProductQRDetailError");
+      // console.log("error", error.response.data.message);
+       navigation.navigate("ProductQRDetailError",{ item: error.response.data.message });
       // navigation.navigate("Landing");
     dispatch(
       pbarcodeFail(

@@ -94,7 +94,7 @@ const AddRecordForm = () => {
    
       if (invoiceImage.length > 0) {
         invoiceImage.forEach((image, index) => {
-          formData.append("invoice_images", {
+          formData.append("invoice_images[]", {
             uri: image.uri,
             type: image.type,
             name: image.fileName || `invoice_image_${index + 1}.jpg`,
@@ -111,7 +111,7 @@ const AddRecordForm = () => {
       });
   
     
-        //  console.log(response.data.status)
+          console.log(response.data?.status);
       
         setIsLoading(false);
         //Alert.alert("Success", "Record added successfully!");
@@ -157,7 +157,7 @@ const handleWhatsApp = (data) => {
       {({ handleChange, handleBlur, handleSubmit, values, errors, touched, setFieldValue, resetForm }) => (
         <ScrollView style={styles.container}>
           <View style={{ width: '100%', height: 50, justifyContent: "center", alignItems: "center" }}>
-            <Text style={{ fontSize: 20 }}>Add Record</Text>
+            <Text style={{ fontSize: 20,color: "black",fontWeight: "bold" }}>Support Form</Text>
           </View>
           <View style={styles.formContainer}>
             <Text style={styles.label}>Name</Text>
@@ -229,7 +229,7 @@ const handleWhatsApp = (data) => {
               <Text style={styles.errorText}>{errors.invoiceImage}</Text>
             )}
 
-            <Text style={styles.label}>Call Date</Text>
+            {/* <Text style={styles.label}>Call Date</Text>
             <TouchableOpacity onPress={() => setIsDatePickerOpen(true)}>
               <TextInput
                 style={styles.input}
@@ -237,7 +237,7 @@ const handleWhatsApp = (data) => {
                 placeholder="Select Call Date"
                 editable={false}
               />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <DatePicker
               modal
               open={isDatePickerOpen}
@@ -291,7 +291,7 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   imageButton: {
-    backgroundColor: "#28a745",
+    backgroundColor: "#88dae0",
     paddingVertical: 12,
     paddingHorizontal: 18,
     borderRadius: 8,
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
     marginLeft:10
   },
   submitButton: {
-    backgroundColor: "#28a745",
+    backgroundColor: "#88dae0",
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 8,

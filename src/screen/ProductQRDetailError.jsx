@@ -18,6 +18,9 @@ import {
   import HeaderQr from "../components/HearderQr";
 
 const ProductQRDetailError = () => {
+  const route = useRoute();
+  console.log(route.params.item,'item')
+  const data = route.params.item
  
     return (
         <>
@@ -31,7 +34,7 @@ const ProductQRDetailError = () => {
             />
             </View>
             <View style={{flex:1, justifyContent:"center",alignItems:"center" }}>
-              <Text>Product Not Found</Text>
+              <Text style={{fontSize:20}}>{data}</Text>
             </View>
           </View>
         </>

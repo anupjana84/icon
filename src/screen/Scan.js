@@ -77,6 +77,7 @@ const Scan = () => {
 
   // Dispatch scanned barcode value
   const onBarcodeRead = (value) => {
+    
     dispatch(productbarcodeDispatch(value, navigation));
   };
 
@@ -112,8 +113,10 @@ const Scan = () => {
 
       {/* Scanning Indicator */}
       {enableOnCodeScanned && (
+        <View style={styles.scanningFrame}>
         <View style={styles.scanningIndicator}>
           <Text style={styles.scanningText}>Scanning...</Text>
+        </View>
         </View>
       )}
 
@@ -134,6 +137,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'black',
+    zIndex:10
+  },
+  scanningFrame: {
+    position: 'absolute',
+    top: height / 2 - 100,
+    left: width / 2 - 200,
+    width: 400,
+    height: 200,
+    borderWidth: 2,
+    borderColor: 'white',
+    borderRadius: 10,
   },
   noCameraContainer: {
     flex: 1,

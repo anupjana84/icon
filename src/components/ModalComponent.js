@@ -15,7 +15,7 @@ const Warnning = ({showModal, setshowModal,onClick}) => {
   };
 
   const handleOk = () => {
-    console.log('OK button pressed');
+    // console.log('OK button pressed');
     toggleModal();
   };
 

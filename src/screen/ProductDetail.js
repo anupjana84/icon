@@ -34,7 +34,7 @@ const ProductDetail = () => {
   const [selectedColor, setSelectedColor] = useState("#B11D1D");
   const { cart } = useSelector((state) => state.ui);
   const { login } = useSelector((state) => state.home);
-  console.log(product.details)
+  // console.log(product,'pr')
 
   const productDetails = useSelector((state) => state.productDetails);
  
