@@ -111,15 +111,15 @@ const AddRecordForm = () => {
       });
   
     
-          console.log(response.data?.status);
+          // console.log(response.data?.status);
       
         setIsLoading(false);
-        //Alert.alert("Success", "Record added successfully!");
+        Alert.alert("Success", "Record added successfully!");
         resetForm(); // Reset the form using Formik's resetForm method
         setInvoiceImage(null); // Clear the invoice image
-        setTimeout(() => {
-          handleWhatsApp(response.data?.status)
-        }, 2000);
+        // setTimeout(() => {
+        //   handleWhatsApp(response.data?.status)
+        // }, 2000);
      
     } catch (error) {
       setIsLoading(false);

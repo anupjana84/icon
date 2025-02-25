@@ -7,19 +7,14 @@ import {
     StatusBar,
     BackHandler,
   } from "react-native";
-  import React, { useContext, useEffect } from "react";
-  import { useNavigation, useRoute } from "@react-navigation/native";
-  import { CartContext } from "../context/CartContext";
-  import CarouselProduct from "../components/CarouselProduct";
-  import ProductDetails_1 from "../components/ProductDetails_1";
-  import ProductDetailsPrice from "../components/ProductDetailsPrice";
-  import { useDispatch, useSelector } from "react-redux";
-  import { addCartRow } from "../../reducers/UiReducer";
+  import React from "react";
+  import { useRoute } from "@react-navigation/native";
+  
   import HeaderQr from "../components/HearderQr";
 
 const ProductQRDetailError = () => {
   const route = useRoute();
-  console.log(route.params.item,'item')
+  // console.log(route.params.item,'item')
   const data = route.params.item
  
     return (

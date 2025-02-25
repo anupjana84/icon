@@ -17,6 +17,7 @@ const ProfileScreen = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   //  console.log("salespoint", salespoint);
+  //  console.log("login", login);
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {/* Profile Header */}
@@ -57,16 +58,21 @@ const ProfileScreen = () => {
         {/* <Text style={styles.infoText}>Email: {login?.result?.email}</Text> */}
         <Text style={styles.infoText}>Phone: {login?.result?.phone}</Text>
         <Text style={styles.infoText}>Whatapp: {login?.result?.wpnumber}</Text>
-        <Text style={styles.infoText}>
-          Points: {salespoint ? salespoint[0]?.point : ""}
+        {login?.result?.role==="salesman" && (
+          <Text style={styles.infoText}>
+          Points: { parseInt(login?.salesman?.point)?parseInt(login?.salesman?.point):0 
+          + parseInt(login?.salesman?.other_point )?parseInt(login?.salesman?.other_point ):0}
+        </Text>
+          
+        )}
+         <Text style={styles.infoText}>
+          Joined Date: {login?.result?.created_at.split("T")[0]}
         </Text>
       </View>
 
       <View style={styles.infoContainer}>
         {/* <Text style={styles.sectionTitle}>Social Media</Text> */}
-        <Text style={styles.infoText}>
-          Joined Date: {login?.result?.created_at.split("T")[0]}
-        </Text>
+       
         {/* <Text style={styles.infoText}>Instagram: @john_doe</Text> */}
       </View>
     </ScrollView>

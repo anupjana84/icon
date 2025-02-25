@@ -24,6 +24,7 @@ import {
   psearchSuccess,
 } from "../../reducers/HomeReducer";
 import Loader from "../components/Loader";
+import Headers from "../components/Headers";
 
 const HomeScreen = () => {
   // const [products, setProducts] = useState(data.products);
@@ -77,7 +78,9 @@ const HomeScreen = () => {
               <>
                 {/* <Header /> */}
                 <View>
-                  <Text style={styles.headingText}>All Product</Text>
+                  {/* <Text style={styles.headingText}>All Product</Text> */}
+                  <Header isCart={true} name={"All Product"} />
+                  <View style={{ marginTop: 10 }}></View>
                   <View style={styles.inputContainer}>
                     <Image
                       source={require("../assets/search.png")}

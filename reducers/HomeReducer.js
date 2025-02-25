@@ -607,7 +607,7 @@ export const productsearchDispatch = (name) => async (dispatch) => {
       `${baseUrl}/products/search?search=${name}`,
       config
     );
-
+console.log(data,'p')
     dispatch(psearchSuccess(data));
     //  console.log("data", data);
   } catch (error) {
@@ -900,6 +900,7 @@ export const salemanDispatch = (id,toke) => async (dispatch) => {
         },
       }
     );
+    console.log(data)
     AsyncStorage.setItem("sales", JSON.stringify(data));
     dispatch(salesSuccess(data));
     //  console.log("data", data);
